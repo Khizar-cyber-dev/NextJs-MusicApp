@@ -13,7 +13,7 @@ import { useUser } from '@/hooks/useUser';
 import { FaUserAlt } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 
-const Header = ({ children }: { children : ReactNode } ) => {
+const Header = ({ children, className }: { children : ReactNode, className: string } ) => {
     const router = useRouter();
     const authModal = useAuthModal();
     const supabaseClient = useSupabaseClient();
@@ -29,7 +29,7 @@ const Header = ({ children }: { children : ReactNode } ) => {
       }
     }
   return (
-    <div className={twMerge('h-fit bg-gradient-to-b from-emerald-600 p-6')}>
+    <div className={twMerge('h-fit bg-gradient-to-b from-emerald-600 p-6', className)}>
        <div className="w-full mb-4 flex items-center justify-between">
             <div className="hidden md:flex gap-x-2 items-center">
                 <button className='rounded-full bg-black flex justify-center hover:opacity-75 transition' onClick={() => router.back()}>
@@ -40,10 +40,10 @@ const Header = ({ children }: { children : ReactNode } ) => {
                 </button>
             </div>
             <div className='flex md:hidden gap-x-2 items-center'>
-                <button className='rounded-full p-2 bg-white items-center justify-center hover:opacity-75 transition'>
+                <button className='rounded-full p-2 bg-white items-center justify-center hover:opacity-75 transition' onClick={() => router.push('/')}>
                     <HiHome className='text-black' size={20}/>
                 </button>
-                <button className='rounded-full p-2 bg-white items-center justify-center hover:opacity-75 transition'>
+                <button className='rounded-full p-2 bg-white items-center justify-center hover:opacity-75 transition' onClick={() => router.push('/search')}>
                     <BiSearch className='text-black' size={20}/>
                 </button>
             </div>
