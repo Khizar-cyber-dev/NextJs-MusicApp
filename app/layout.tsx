@@ -5,7 +5,7 @@ import Sidebar from "@/components/Sidebar";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
-import { Theme } from "@radix-ui/themes";
+import ToasterProvider from "@/providers/ToasterProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
        <SupabaseProvider>
+        <ToasterProvider />
           <UserProvider>
             <ModalProvider />
               <Sidebar>
